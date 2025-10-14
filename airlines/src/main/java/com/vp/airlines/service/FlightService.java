@@ -20,4 +20,9 @@ public class FlightService {
     public List<Flight> getFlights() {
         return flightRepository.getFlights();
     }
+
+    public Flight getFlight(int id){
+        return flightRepository.getFlight(id);
+    }
+
 }

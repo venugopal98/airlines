@@ -2,7 +2,7 @@ package com.vp.airlines.model;
 
 public class Flight {
 
-    private static int nextId = 1; // counter for unique IDs
+    private static int nextId = 0; // counter for unique IDs
 
     private int id;
     private String name;

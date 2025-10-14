@@ -18,8 +18,17 @@ public class FlightsController {
     @GetMapping("flights")
     private List<Flight> getFlights() {
         try {
-            System.out.println(flightService.getFlights());
             return flightService.getFlights();
+        } catch (Exception e) {
+            System.out.println("ERROR: Cannot get flight details\nDetails:  " + e.getMessage());
+            return null;
+        }
+    }
+
+    @GetMapping("flights/{id}")
+    private Flight getFlights(@PathVariable("id") int flightId) {
+        try {
+            return flightService.getFlight(flightId);
         } catch (Exception e) {
             System.out.println("ERROR: Cannot get flight details\nDetails:  " + e.getMessage());
             return null;
