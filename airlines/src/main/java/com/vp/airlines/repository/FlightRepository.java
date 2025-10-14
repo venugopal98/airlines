@@ -22,4 +22,8 @@ public class FlightRepository {
         return flights;
     }
 
+    public Flight getFlight(int id){
+        return flights.get(id);
+    }
+
 }
