@@ -1,9 +1,16 @@
 package com.vp.airlines.model;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Flight")
 public class Flight {
 
-    private static int nextId = 0; // counter for unique IDs
 
+    private static int nextId = 0; // counter for unique IDs
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String code;

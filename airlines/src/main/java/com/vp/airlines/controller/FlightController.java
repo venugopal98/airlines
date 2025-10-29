@@ -2,21 +2,20 @@ package com.vp.airlines.controller;
 
 import com.vp.airlines.model.Flight;
 import com.vp.airlines.service.FlightService;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-public class FlightsController {
+public class FlightController {
 
     @Autowired
     FlightService flightService;
 
     @GetMapping("flights")
-    private List<Flight> getFlights() {
+    private List getFlights() {
         try {
             return flightService.getFlights();
         } catch (Exception e) {
@@ -26,18 +25,12 @@ public class FlightsController {
     }
 
     @GetMapping("flights/{id}")
-    private Flight getFlights(@PathVariable("id") int flightId) {
-        try {
-            return flightService.getFlight(flightId);
-        } catch (Exception e) {
-            System.out.println("ERROR: Cannot get flight details\nDetails:  " + e.getMessage());
-            return null;
-        }
+    private Optional getFlights(@PathVariable("id") int flightId) {
+        return flightService.getFlight(flightId);
     }
 
     @PostMapping("flights")
-    private boolean addFlights() {
-        return flightService.addFlight(new Flight("AirBus 123", "AL123", 45));
+    private Flight addFlights(@RequestBody Flight flight) {
+        return this.flightService.addFlight(flight);
     }
-
 }
