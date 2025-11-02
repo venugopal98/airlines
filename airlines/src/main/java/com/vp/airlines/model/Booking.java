@@ -1,5 +1,6 @@
 package com.vp.airlines.model;
 
+import java.awt.print.Book;
 import java.util.*;
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,4 +19,11 @@ public class Booking {
     private Date bookingDate;
     private String passengerId;
     private String flightId;
+
+    public Booking(String seatNumber, Date bookingDate, String passengerId, String flightId) {
+        this.seatNumber = seatNumber;
+        this.bookingDate = bookingDate;
+        this.passengerId = passengerId;
+        this.flightId = flightId;
+    }
 }

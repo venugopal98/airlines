@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="airline")
+@Table(name = "airline")
 public class Airline {
 
     @Id
@@ -18,4 +18,9 @@ public class Airline {
     private String code;
     private String country;
 
+    public Airline(String name, String code, String country) {
+        this.name = name;
+        this.code = code;
+        this.country = country;
+    }
 }

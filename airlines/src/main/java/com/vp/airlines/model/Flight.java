@@ -19,4 +19,12 @@ public class Flight {
     private Date arrivalTime;
     private String airlineId;
 
+    public Flight(String flightNumber, String source, String destination, Date departureTime, Date arrivalTime, String airlineId) {
+        this.flightNumber = flightNumber;
+        this.source = source;
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.airlineId = airlineId;
+    }
 }
