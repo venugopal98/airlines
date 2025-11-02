@@ -14,5 +14,4 @@ import java.util.List;
 
 @Repository
 public interface FlightRepository extends JpaRepository {
-    Flight findByFlightNumber(String flightNumber);
 }

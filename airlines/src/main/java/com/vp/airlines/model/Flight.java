@@ -1,70 +1,22 @@
 package com.vp.airlines.model;
 
-
+import java.util.*;
 import jakarta.persistence.*;
-
+import lombok.*;
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
-@Table(name = "Flight")
+@Table(name = "flight")
 public class Flight {
-
-
-    private static int nextId = 0; // counter for unique IDs
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private int id;
-    private String name;
-    private String code;
-    private int fuelCapacity;
+    private String flightNumber;
+    private String source;
+    private String destination;
+    private Date departureTime;
+    private Date arrivalTime;
+    private String airlineId;
 
-    public Flight() {
-    }
-
-    public Flight(String name, String code, int fuelCapacity) {
-        this.id = nextId++;
-        this.name = name;
-        this.code = code;
-        this.fuelCapacity = fuelCapacity;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public int getFuelCapacity() {
-        return fuelCapacity;
-    }
-
-    public void setFuelCapacity(int fuelCapacity) {
-        this.fuelCapacity = fuelCapacity;
-    }
-
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", code='" + code + '\'' +
-                ", fuelCapacity=" + fuelCapacity +
-                '}';
-    }
 }
